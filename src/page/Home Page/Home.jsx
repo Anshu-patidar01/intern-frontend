@@ -14,7 +14,7 @@ function Home() {
     try {
       const token = localStorage.getItem("project");
       const response = await axios
-        .get("http://localhost:3000/form/limitedIdiaForm", {
+        .get("https://intern-frontend-9x6l.onrender.com/form/limitedIdiaForm", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
