@@ -14,7 +14,7 @@ function Home() {
     try {
       const token = localStorage.getItem("project");
       const response = await axios
-        .get("https://intern-frontend-9x6l.onrender.com/form/limitedIdiaForm", {
+        .get("https://intern-backend-49ou.onrender.com/form/limitedIdiaForm", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,7 +36,7 @@ function Home() {
       const token = localStorage.getItem("project");
       await axios
         .post(
-          "http://localhost:3000/validate-token",
+          "https://intern-backend-49ou.onrender.com/validate-token",
           { token: `${token}` },
           {
             headers: { "Content-Type": "application/json" },
@@ -79,7 +79,7 @@ function Home() {
       console.log("id:", id);
       await axios
         .post(
-          "http://localhost:3000/like",
+          "https://intern-backend-49ou.onrender.com/like",
           { id: id },
           {
             headers: {

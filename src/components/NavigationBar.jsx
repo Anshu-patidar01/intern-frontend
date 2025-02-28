@@ -8,7 +8,7 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Context/context";
 
@@ -40,6 +40,38 @@ export default function NavigationBar() {
       password: "",
     });
   };
+
+  useEffect(() => {
+    async () => {
+      const token = localStorage.getItem("project"); // or any auth logic
+      // if (!token) {
+      //   setIsAuthorized(false);
+      //   return;
+      // }
+      console.log(token);
+      try {
+        await axios
+          .post(
+            // "https://intern-backend-49ou.onrender.com/user/validate-token",
+            "https://intern-backend-49ou.onrender.com/validate-token",
+            { token: `${token}` },
+            {
+              headers: { "Content-Type": "application/json" },
+            }
+          )
+          .then((res) => {
+            console.log("User from proted route:", res.data);
+            setUser(res.data);
+          })
+          .catch((res) => {
+            console.log("User from proted route catched:", res);
+          });
+      } catch (error) {
+        console.log("error while connecting to token api.");
+      }
+    };
+  }, []);
+
   return (
     <Disclosure as="nav" className="bg-gray-800 ">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

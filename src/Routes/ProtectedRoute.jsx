@@ -18,8 +18,8 @@ const ProtectedRoute = ({ children, to }) => {
       try {
         await axios
           .post(
-            // "http://localhost:3000/user/validate-token",
-            "http://localhost:3000/validate-token",
+            // "https://intern-backend-49ou.onrender.com/user/validate-token",
+            "https://intern-backend-49ou.onrender.com/validate-token",
             { token: `${token}` },
             {
               headers: { "Content-Type": "application/json" },

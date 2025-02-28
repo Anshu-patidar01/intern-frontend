@@ -30,7 +30,7 @@ export default function RegisterationPage() {
     try {
       console.log(form);
       const response = await axios
-        .post("http://localhost:3000/register", form, {
+        .post("https://intern-backend-49ou.onrender.com/register", form, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {

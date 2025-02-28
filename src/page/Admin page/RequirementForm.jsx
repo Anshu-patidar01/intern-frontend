@@ -8,7 +8,7 @@ function RequirementForm() {
     const requirement_api = async () => {
       try {
         await axios
-          .get("http://localhost:3000/form/Requirement")
+          .get("https://intern-backend-49ou.onrender.com/form/Requirement")
           .then((res) => {
             console.log(res.data);
             setforms(res.data);
